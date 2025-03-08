@@ -7,32 +7,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="board">
-      <!-- Column 1: To Do -->
-      <div class="column" id="to-do-column">
-        <h2>To Do</h2>
-        <input type="text" id="to-do-input" placeholder="Add a task" />
-        <button id="add-to-do">Add Task</button>
-        <div id="to-do-tasks" class="tasks"></div>
+    <div class="container">
+      <div class="header">
+        <h1>Trello-like App</h1>
+        <input type="text" id="task-input" placeholder="Add a task..." />
+        <button id="add-task-btn">Add Task</button>
       </div>
 
-      <!-- Column 2: In Progress -->
-      <div class="column" id="in-progress-column">
-        <h2>In Progress</h2>
-        <input type="text" id="in-progress-input" placeholder="Add a task" />
-        <button id="add-in-progress">Add Task</button>
-        <div id="in-progress-tasks" class="tasks"></div>
-      </div>
-
-      <!-- Column 3: Done -->
-      <div class="column" id="done-column">
-        <h2>Done</h2>
-        <input type="text" id="done-input" placeholder="Add a task" />
-        <button id="add-done">Add Task</button>
-        <div id="done-tasks" class="tasks"></div>
+      <div class="columns">
+        <div class="column" id="todo">
+          <h2>Todo</h2>
+          <ul class="task-list" id="todo-list"></ul>
+        </div>
+        <div class="column" id="in-progress">
+          <h2>In Progress</h2>
+          <ul class="task-list" id="in-progress-list"></ul>
+        </div>
+        <div class="column" id="done">
+          <h2>Done</h2>
+          <ul class="task-list" id="done-list"></ul>
+        </div>
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
+    <script src="draggable.js"></script>
   </body>
 </html>

@@ -22,6 +22,30 @@ h2 {
   margin-bottom: 15px;
 }
 
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #5ba4cf;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #3d8baf;
+}
+
 /* Board Styles */
 .board {
   display: flex;
@@ -47,21 +71,36 @@ h2 {
   margin-bottom: 20px;
 }
 
-.card {
+.tasks {
+  margin-top: 20px;
+}
+
+.task {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  min-height: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(66, 133, 244, 0.8);
+button.delete,
+button.edit {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.delete:hover,
+button.edit:hover {
+  background-color: #e64a19;
 }
 
 /* Responsive Styles */

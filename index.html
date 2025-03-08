@@ -3,30 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Trello App</title>
+    <title>Trello-like App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="board">
-      <div class="column">
+      <!-- Column 1: To Do -->
+      <div class="column" id="to-do-column">
         <h2>To Do</h2>
-        <div class="card" contenteditable="true">Task 1</div>
-        <div class="card" contenteditable="true">Task 2</div>
-        <div class="card" contenteditable="true">Task 3</div>
+        <input type="text" id="to-do-input" placeholder="Add a task" />
+        <button id="add-to-do">Add Task</button>
+        <div id="to-do-tasks" class="tasks"></div>
       </div>
 
-      <div class="column">
+      <!-- Column 2: In Progress -->
+      <div class="column" id="in-progress-column">
         <h2>In Progress</h2>
-        <div class="card" contenteditable="true">Task 4</div>
-        <div class="card" contenteditable="true">Task 5</div>
+        <input type="text" id="in-progress-input" placeholder="Add a task" />
+        <button id="add-in-progress">Add Task</button>
+        <div id="in-progress-tasks" class="tasks"></div>
       </div>
 
-      <div class="column">
+      <!-- Column 3: Done -->
+      <div class="column" id="done-column">
         <h2>Done</h2>
-        <div class="card" contenteditable="true">Task 6</div>
+        <input type="text" id="done-input" placeholder="Add a task" />
+        <button id="add-done">Add Task</button>
+        <div id="done-tasks" class="tasks"></div>
       </div>
     </div>
-    <script src="script.js"></script>
-    <script src="draggable.js"></script>
+
+    <script src="app.js"></script>
   </body>
 </html>

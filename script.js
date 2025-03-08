@@ -18,10 +18,10 @@ button.addEventListener("click", () => {
     //console.log(t.textContent);
     t.setAttribute("draggable", true);
     t.addEventListener("dragstart", () => {});
+    t.addEventListener("dragenter", () => {});
+    t.addEventListener("dragover", () => {});
+    t.addEventListener("dragleave", () => {});
+    t.addEventListener("drop", () => {});
+    t.addEventListener("dragend", () => {});
   });
-  t.addEventListener("dragenter", () => {});
-  t.addEventListener("dragover", () => {});
-  t.addEventListener("dragleave", () => {});
-  t.addEventListener("drop", () => {});
-  t.addEventListener("dragend", () => {});
 });

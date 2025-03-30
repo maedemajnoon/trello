@@ -84,3 +84,10 @@ button {
 .column:active {
   background-color: #c0c5db;
 }
+
+.drag {
+  background-color: rgb(255, 0, 64);
+}
+.over {
+  border-top: 2px solid #4b59617d;
+}

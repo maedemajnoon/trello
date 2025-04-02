@@ -1,67 +1,91 @@
-let addTaskBtn = document.querySelector("#add-task-btn");
+let toDoBtn = document.querySelector("#add-task-btn");
+let doingBtn = document.querySelector("#add-task-btn_doing");
+let doneBtn = document.querySelector("#add-task-btn_done");
+
 let taskInput = document.querySelector("#task-input");
 let columns = document.querySelector(".columns");
 let eachColumns = document.querySelectorAll(".column");
+
 let toDo = document.querySelector("#todo");
+let doing = document.querySelector("#in-progress");
+let done = document.querySelector("#done");
 
+let clear = document.querySelector("#clearAll");
 let draggedTask = null;
+let time = 300;
 
-addTaskBtn.addEventListener("click", function (e) {
-  let new_task = taskInput.value;
-  if (new_task == "") return;
-  let div = document.createElement("div");
-  div.innerHTML = `<div class="task draggable"><p>${new_task}</p></div>`;
-  toDo.appendChild(div);
-  taskInput.value = "";
-  //eachColumns.forEach((col) => {
+toDoBtn.addEventListener("click", function (e) {
+  createElement(toDo);
+});
+doingBtn.addEventListener("click", function (e) {
+  createElement(doing);
+});
+doneBtn.addEventListener("click", function (e) {
+  createElement(done);
+});
+function addDraggableTask() {
   document.querySelectorAll(".task").forEach((task) => {
     task.setAttribute("draggable", true);
     task.addEventListener("dragstart", handleDragStart);
-    // task.addEventListener("dragenter", handleDragEnter);
-    // task.addEventListener("dragover", handleDragOver);
-    // task.addEventListener("dragleave", handleDragLeave);
-    // task.addEventListener("drop", handleDrop);
     task.addEventListener("dragend", handleDragEnd);
   });
-  document.querySelectorAll(".column").forEach((col) => {
-    col.addEventListener("dragenter", handleDragEnter);
+  eachColumns.forEach((col) => {
     col.addEventListener("dragover", handleDragOver);
     col.addEventListener("dragleave", handleDragLeave);
     col.addEventListener("drop", handleDrop);
+    col.addEventListener("click", deleteTask);
   });
-});
+}
+function deleteTask(e) {
+  if (e.target.matches("i.fa-trash-o")) {
+    let task = e.target.closest(".task");
+    if (task) {
+      task.remove();
+    }
+  }
+}
+
 function handleDragStart(e) {
   draggedTask = this;
-  console.log("start");
-  //e.target.classList.add("drag");
   e.dataTransfer.setData("text/html", e.target.outerHTML);
-  //console.log(e.target);
-  console.log("over");
   e.target.classList.add("over");
-}
-function handleDragEnter(e) {
-  console.log("enter");
 }
 function handleDragOver(e) {
   if (e.preventDefault()) e.preventDefault();
   e.target.classList.add("dragging");
 }
 function handleDragLeave(e) {
-  console.log("leave");
   e.target.classList.remove("dragging");
 }
 function handleDrop(e) {
-  console.log("drop");
-  //console.log(e.dataTransfer.getData("text/html"));
-  //console.log(e.target);
-  let col2 = document.querySelector("#in-progress");
-  //e.target.appendChild(col2);
   if (draggedTask) {
     this.appendChild(draggedTask);
   }
   e.target.classList.remove("dragging");
 }
 function handleDragEnd(e) {
-  console.log("end");
   e.target.classList.remove("over");
+}
+function createElement(columnName) {
+  let new_task = taskInput.value;
+  if (new_task == "") return;
+  let div = document.createElement("div");
+  div.innerHTML = `<div class="task"><p>${new_task}<i class="fa fa-trash-o"></i></p></div>`;
+  columnName.appendChild(div);
+  taskInput.value = "";
+
+  clear.classList.add("active");
+  addDraggableTask();
+}
+clear.addEventListener("click", function (e) {
+  clearAll();
+});
+
+function clearAll() {
+  if (window.confirm("Are you sure you wanna delete all the tasks?")) {
+    setTimeout(() => {
+      document.querySelectorAll(".task").forEach((task) => task.remove());
+      clear.classList.remove("active");
+    }, time);
+  }
 }

@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trello-like App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="https://fonts.cdnfonts.com/css/arial-2" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <h1>Trello-like App</h1>
         <input type="text" id="task-input" placeholder="Add a task..." />
-        <button id="add-task-btn">Add Task</button>
+        <button id="add-task-btn">TO DO</button>
+        <button id="add-task-btn_doing">DOING</button>
+        <button id="add-task-btn_done">DONE</button>
+        <button class="right" id="clearAll">clear</button>
       </div>
 
       <div class="columns">
         <div class="column" id="todo">
-          <h2>Todo</h2>
+          <h2>To do</h2>
           <ul class="task-list" id="todo-list"></ul>
         </div>
         <div class="column" id="in-progress">

@@ -31,8 +31,8 @@ button {
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #0079bf;
-  color: white;
+  background-color: #e8ca5255;
+  color: rgba(16, 13, 13, 0.638);
   border: none;
   border-radius: 5px;
 }
@@ -43,7 +43,7 @@ button {
 }
 
 .column {
-  background-color: #e3e4e8;
+  background-color: #65653b22;
   border-radius: 8px;
   width: 30%;
   padding: 10px;
@@ -55,6 +55,7 @@ button {
 .column h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: rgba(16, 13, 13, 0.638);
 }
 
 .task-list {
@@ -78,11 +79,11 @@ button {
 }
 
 .column:hover {
-  background-color: #d0d4dc;
+  background-color: #65653b3c;
 }
 
 .column:active {
-  background-color: #c0c5db;
+  background-color: #65653b4f;
 }
 
 .drag {
@@ -90,4 +91,15 @@ button {
 }
 .over {
   border-top: 2px solid #4b59617d;
+}
+.fa.fa-trash-o {
+  font-size: 20px;
+  float: right;
+}
+.right {
+  float: right;
+  display: none;
+}
+.right.active {
+  display: block;
 }
